@@ -2,18 +2,18 @@ package com.ivanboyukliev.creationalpatterns.factorymethod.courseassignment;
 
 public class AnimalFactory {
 
-    public Animal getAnimalType(String animalType){
+    public Animal getAnimalType(String animalType) throws Exception {
 
-       if(animalType == null) {
-           return null;
-       }
-        if(animalType.equalsIgnoreCase("DUCK")){
+        if (animalType == null) {
+            throw new Exception("Null was provided as a method parameter.");
+        }
+        if (animalType.equalsIgnoreCase("DUCK")) {
             return new Duck();
         }
-        if(animalType.equalsIgnoreCase("TIGER")){
+        if (animalType.equalsIgnoreCase("TIGER")) {
             return new Tiger();
         }
 
-        return null;
+        throw new Exception("Can not instantiate object of type " + animalType);
     }
 }
