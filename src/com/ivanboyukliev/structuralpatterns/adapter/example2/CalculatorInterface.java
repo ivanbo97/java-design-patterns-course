@@ -1,6 +1,5 @@
 package com.ivanboyukliev.structuralpatterns.adapter.example2;
-
+//Target interface
 public interface CalculatorInterface {
-    //target interface
     double getArea(Rectangle r);
 }
