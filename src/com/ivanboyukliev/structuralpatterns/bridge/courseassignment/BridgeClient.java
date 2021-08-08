@@ -5,5 +5,9 @@ public class BridgeClient {
         IColor colorFirst = new Red();
         Shape firstShape = new Triangle(colorFirst);
         firstShape.drawShape(25);
+
+        IColor colorSecond = new Green();
+        Shape secondShape = new Rectangle(colorSecond);
+        secondShape.drawShape(25);
     }
 }
