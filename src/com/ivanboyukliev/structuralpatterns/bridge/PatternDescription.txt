@@ -1,0 +1,31 @@
+                                                                                    II. Bridge
+
+1. Основна идея
+
+-> Разделяне на абстрактния клас от неговата имплементация, така че при промяна на единия другият да не e зависим. Въвежда се допълнителна абстракция, която
+   служи за преход (bridge).
+
+2. Имплементаия : Има три основни компонента от този шаблон
+
+   1) Abstraction : Дефинира интерфейса на самата абстракция. !!!Съдържа референция към Implementer
+
+   2) RefinedAbstraction : наследява Abstraction
+
+   3) Implementer : Дефинира интерфейса за имплементационните класове. Не е задължително да кореспондира с Abstraction класа
+
+3. Обобщение : шаблонът е подходящ, когато нашите класове и техните функционалности се променят в сравнително чести интервали.
+               Implementer класовете могат да се сменят динамично (at runtime) чрез смяната на референцията в Abstraction класа.
+
+
+
+
+Applicability
+
+ Use the Bridge pattern when you want to divide and organize a monolithic class that has several variants of some functionality (for example,
+ if the class can work with various database servers).
+
+ The bigger a class becomes, the harder it is to figure out how it works, and the longer it takes to make a change. The changes made to one of the variations
+ of functionality may require making changes across the whole class, which often results in making errors or not addressing some critical side effects.
+
+ The Bridge pattern lets you split the monolithic class into several class hierarchies. After this, you can change the classes in each hierarchy independently
+ of the classes in the others. This approach simplifies code maintenance and minimizes the risk of breaking existing code.
