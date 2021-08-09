@@ -1,5 +1,6 @@
 package com.ivanboyukliev.structuralpatterns.composite.example1;
 
+// Leaf
 public class Developer implements Employee {
     private String name;
     private String employeeId;

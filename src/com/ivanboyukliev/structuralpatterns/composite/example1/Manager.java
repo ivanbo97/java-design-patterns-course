@@ -1,5 +1,6 @@
 package com.ivanboyukliev.structuralpatterns.composite.example1;
 
+// Leaf
 public class Manager implements Employee {
     private String name;
     private String employeeId;
