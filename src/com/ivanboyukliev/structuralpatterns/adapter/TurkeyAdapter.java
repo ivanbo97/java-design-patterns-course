@@ -1,5 +1,7 @@
 package com.ivanboyukliev.structuralpatterns.adapter;
 
+// Making the turkey behave like duck (but having the characteristics of a turkey)
+
 public class TurkeyAdapter implements Duck {
     //Adaptee
     Turkey turkey;
