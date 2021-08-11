@@ -15,7 +15,7 @@ public class Dollar20Dispenser implements DispenseChain {
             int num = currencyAmount / 20;
             int reminder = currencyAmount % 20;
             System.out.println("Dispensing " + num + " 20$ note");
-            if (reminder != 0){
+            if (reminder != 0) {
                 this.nextDispenser.dispense(new Currency(reminder));
             }
             return;

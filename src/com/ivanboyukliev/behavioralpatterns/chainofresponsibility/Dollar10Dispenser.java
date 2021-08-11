@@ -1,6 +1,6 @@
 package com.ivanboyukliev.behavioralpatterns.chainofresponsibility;
 
-public class Dollar10Dispenser implements DispenseChain{
+public class Dollar10Dispenser implements DispenseChain {
     private DispenseChain nextDispenser;
 
     @Override
@@ -15,7 +15,7 @@ public class Dollar10Dispenser implements DispenseChain{
             int num = currencyAmount / 10;
             int reminder = currencyAmount % 10;
             System.out.println("Dispensing " + num + " 10$ note");
-            if (reminder != 0){
+            if (reminder != 0) {
                 this.nextDispenser.dispense(new Currency(reminder));
             }
             return;
