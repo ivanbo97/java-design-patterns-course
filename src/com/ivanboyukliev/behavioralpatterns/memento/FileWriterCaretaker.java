@@ -2,6 +2,7 @@ package com.ivanboyukliev.behavioralpatterns.memento;
 
 // Caretaker
 public class FileWriterCaretaker {
+    // Memento object
     private Object obj;
 
     public void save(FileWriterUtil fileWriter) {

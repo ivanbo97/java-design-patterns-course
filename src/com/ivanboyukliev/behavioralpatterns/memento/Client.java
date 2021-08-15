@@ -2,8 +2,11 @@ package com.ivanboyukliev.behavioralpatterns.memento;
 
 public class Client {
     public static void main(String[] args) {
+
+        // Caretaker
         FileWriterCaretaker fileWriterCaretaker = new FileWriterCaretaker();
 
+        // Originator
         FileWriterUtil fileWriterUtil = new FileWriterUtil("data.txt");
         fileWriterUtil.write("First Set of Data:\nMaria\nGergana");
 
