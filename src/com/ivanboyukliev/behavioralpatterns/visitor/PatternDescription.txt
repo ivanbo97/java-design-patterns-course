@@ -1,0 +1,38 @@
+                                                                                           ==Visitor Design pattern==
+
+
+The Visitor Pattern is a behavioral design pattern that allows you to add further operations to objects without modifying them. It achieves this by separating the algorithm from the object structure it operates on, which makes it easier to introduce new operations on the structure without altering its classes.
+
+Key Concepts:
+
+1.Visitor Interface: Declares a visit() method for each type of element (object) in the structure. Each visit() method corresponds to an element it can operate on.
+
+2. Concrete Visitor: Implements the visit() methods for each specific element type, defining the operation to be performed on each type.
+
+3. Element Interface: Declares an accept() method that takes a visitor as an argument.
+
+4. Concrete Element: Implements the accept() method, which calls the visit() method on the visitor object, passing itself as an argument. This allows the visitor to access the element and perform operations on it.
+
+5. Object Structure: A collection of elements that the visitor traverses. The structure is typically a composite of objects on which the visitor can act.
+
+How it Works:
+
+The Visitor Pattern works by having an object structure (like a list or tree of elements) accept a visitor object. The visitor object then performs operations on each element in the structure, according to its type. Each element "accepts" a visitor, and the visitor performs the action specific to that element.
+
+
+Key Benefits:
+
+Separation of concerns: Operations are separated from the objects they work on.
+Extensibility: New operations can be added without modifying the object structure.
+Open/Closed Principle: The object structure remains closed for modification, but open for new behaviors via visitors.
+
+Downsides:
+Tight coupling: Adding new element types requires modifying the visitor interface, which can introduce tight coupling between the visitor and the element hierarchy.
+Complexity: The pattern adds complexity, especially if the object structure or operations are simple.
+
+When to Use the Visitor Pattern:
+When you need to perform many unrelated operations on an object structure.
+When the object structure is stable and unlikely to change, but new operations need to be added frequently.
+When you want to keep different operations cleanly separated.
+
+The Visitor Pattern is often used in compiler design for syntax tree traversal or in scenarios where objects with different types need to be processed uniformly while keeping the object structure unchanged.
