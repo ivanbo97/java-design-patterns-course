@@ -3,20 +3,20 @@
 
 1.Онсновна идея
 
--> Адаптер шаблонът за дизайн работи като свързващо звено между два директно несъвместими интерфейса. Шаблонът е извстен също под името "wrapper".
+-> Адаптер шаблонът за дизайн работи като свързващо звено между два директно несъвместими интерфейса (смисъл интефейси с различни методи). Шаблонът е извстен също под името "wrapper".
 
 2.Примери от сферата на софтуера
 
 -> Имаме съществуваща софтуерна система. Трябва да се добавя външна библиотека, която е с една версия по-нова от старата, която сме използвали и дизайнът е по-различен. Не искаме
-   да рзрешаваме възникналите несъвместимости чре промяна на съществуващия наш код, нито пък можем да променим кода на библиотеката. В така ситуация може да се използва Adapter
+   да рзрешаваме възникналите несъвместимости чрез промяна на съществуващия наш код, нито пък можем да променим кода на библиотеката. В така ситуация може да се използва Adapter
    шаблонът, като той ще бъде в ролята на посредник и ще преобразува постъпващите заявки от клиента и ще ги преобразува в такива, които обслужа външната библиотека.
 
 Примери за приложен Adapter шаблон в JDK : java.util.Arrays#asList() ; java.io.InputStreamReader (InputStream) (returns Reader)
 
 3. Изграждащи компоненти на Adapter (при Object имплементация)
 
- 1) Taget Interface : дефинира domain-specific интерфейс, който ще използва Client
- 2) Client  : сътрудничи си обекти, които са от Target интерфейса
+ 1) Target Interface : дефинира domain-specific интерфейс, който ще използва Client
+ 2) Client  : сътрудничи си с обекти, които са от Target интерфейса
  3) Adaptee : Дефинира съществуващ интерфейс, който ще бъде адаптиран
  4) Adapter : Адаптира интерфейса на Adaptee към Target интерфейса
 
@@ -37,3 +37,45 @@
 6. Обобщение
 
 -> Adapter-ите варират във това колко работа ще изпълнят така че да пригодят Adaptee обекта към Target интерфейса.
+
+
+Пример за адаптер VGA към HDMI
+
+// Target interface
+interface HDMI {
+    void transmitVideoAndAudio();
+}
+
+// Adaptee (Existing class)
+class VGA {
+    void transmitVideo() {
+        System.out.println("Video transmitted via VGA");
+    }
+}
+
+// Adapter class
+class VGAtoHDMIAdapter implements HDMI {
+    private VGA vga;
+
+    public VGAtoHDMIAdapter(VGA vga) {
+        this.vga = vga;
+    }
+
+    @Override
+    public void transmitVideoAndAudio() {
+        // Adapting the VGA method to fit the HDMI interface
+        vga.transmitVideo();
+        System.out.println("Audio transmitted via HDMI");
+    }
+}
+
+// Client code
+public class Client {
+    public static void main(String[] args) {
+        VGA vga = new VGA();
+        HDMI hdmiAdapter = new VGAtoHDMIAdapter(vga);
+
+        // Now the client can use VGA through HDMI interface
+        hdmiAdapter.transmitVideoAndAudio();
+    }
+}
